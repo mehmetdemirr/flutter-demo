@@ -15,6 +15,18 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    GetImageRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GetImageScreen(),
+      );
+    },
+    PostRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PostScreen(),
+      );
+    },
     SettingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -27,13 +39,35 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomeScreen(),
       );
     },
-    PostRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const PostScreen(),
-      );
-    },
   };
+}
+
+/// generated route for
+/// [GetImageScreen]
+class GetImageRoute extends PageRouteInfo<void> {
+  const GetImageRoute({List<PageRouteInfo>? children})
+      : super(
+          GetImageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GetImageRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PostScreen]
+class PostRoute extends PageRouteInfo<void> {
+  const PostRoute({List<PageRouteInfo>? children})
+      : super(
+          PostRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PostRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -60,20 +94,6 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [PostScreen]
-class PostRoute extends PageRouteInfo<void> {
-  const PostRoute({List<PageRouteInfo>? children})
-      : super(
-          PostRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'PostRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

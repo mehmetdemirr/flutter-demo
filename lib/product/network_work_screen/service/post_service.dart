@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:demo/core/function/print_function.dart';
 import 'package:demo/core/utilty/api_items.dart';
-import 'package:demo/product/network_work/model/post_model.dart';
+import 'package:demo/product/network_work_screen/model/post_model.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 

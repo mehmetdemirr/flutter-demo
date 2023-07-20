@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:demo/product/home_screen/home_screen.dart';
-import 'package:demo/product/network_work/view/post_screen.dart';
+import 'package:demo/product/network_work_screen/view/post_screen.dart';
 import 'package:demo/product/setting_screen/setting_screen.dart';
+
+import '../../product/get_image_screen/view/get_image_screen.dart';
 
 part 'app_router.gr.dart';
 
@@ -12,7 +14,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: RouterItem.home.str(),
           page: HomeRoute.page,
-          initial: true,
         ),
         AutoRoute(
           path: RouterItem.setting.str(),
@@ -22,6 +23,11 @@ class AppRouter extends _$AppRouter {
           path: RouterItem.post.str(),
           page: PostRoute.page,
         ),
+        AutoRoute(
+          path: RouterItem.getImage.str(),
+          page: GetImageRoute.page,
+          initial: true,
+        ),
       ];
 }
 
@@ -29,6 +35,7 @@ enum RouterItem {
   home,
   setting,
   post,
+  getImage,
 }
 
 extension RouterItems on RouterItem {
@@ -40,6 +47,8 @@ extension RouterItems on RouterItem {
         return "/setting";
       case RouterItem.post:
         return "/post";
+      case RouterItem.getImage:
+        return "/getImage";
     }
   }
 }

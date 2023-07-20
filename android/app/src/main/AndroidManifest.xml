@@ -1,6 +1,45 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+ <!--
+      Granular media permissions for Android 13 and newer.
+      See https://developer.android.com/about/versions/13/behavior-changes-13#granular-media-permissions
+      for more information.
+    -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+
+    <!-- Permissions options for the `camera` group -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+        <!-- Permissions options for the `notification` group -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+      <!--#docregion android-queries-->
+  <!-- Provide required visibility configuration for API level 30 and above -->
+  <queries>
+    <!-- If your app checks for SMS support -->
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="sms" />
+    </intent>
+    <!-- If your app checks for call support -->
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="tel" />
+    </intent>
+    <!--#enddocregion android-queries-->
+    <!-- The "https" scheme is only required for integration tests of this package="com.example.newpackage">
+         It shouldn't be needed in most actual apps, or show up in the README! -->
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="https" />
+    </intent>
+    <!--#docregion android-queries-->
+  </queries>
+  <!--#enddocregion android-queries-->
+  <!--#enddocregion android-queries-->
     <application
-        android:label="demo"
+        android:label="YourAppName"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

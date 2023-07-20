@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:demo/core/utilty/padding_items.dart';
-import 'package:demo/product/network_work/model/post_model.dart';
-import 'package:demo/product/network_work/viewmodel/post_view_model.dart';
+import 'package:demo/product/network_work_screen/model/post_model.dart';
+import 'package:demo/product/network_work_screen/viewmodel/post_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
