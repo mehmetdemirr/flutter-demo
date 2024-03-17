@@ -14,6 +14,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: RouterItem.home.str(),
           page: HomeRoute.page,
+          initial: true,
         ),
         AutoRoute(
           path: RouterItem.setting.str(),
@@ -26,7 +27,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: RouterItem.getImage.str(),
           page: GetImageRoute.page,
-          initial: true,
         ),
       ];
 }

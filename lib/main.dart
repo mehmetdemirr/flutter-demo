@@ -8,6 +8,7 @@ import 'package:demo/product/home_screen/home_view_model.dart';
 import 'package:demo/product/network_work_screen/viewmodel/post_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -62,16 +63,36 @@ class MyApp extends StatelessWidget {
       //router
       routerConfig: _appRouter.config(),
       //network control
-      builder: (context, child) {
-        return Column(
-          children: [
-            Expanded(
-              child: child ?? const SizedBox(),
-            ),
-            const NoNetworkWidget(),
-          ],
-        );
-      },
+      builder: EasyLoading.init(
+        builder: (context, child) {
+          return Column(
+            children: [
+              Expanded(
+                child: child ?? const SizedBox(),
+              ),
+              const NoNetworkWidget(),
+              // tasarımlar yapılan bu kaldırabilir. 5 height kayma olabilir
+              // context.small
+              //     ? Container(
+              //         color: Colors.green,
+              //         width: context.width,
+              //         height: 5,
+              //       )
+              //     : context.medium
+              //         ? Container(
+              //             color: Colors.blue,
+              //             width: context.width,
+              //             height: 5,
+              //           )
+              //         : Container(
+              //             color: Colors.red,
+              //             width: context.width,
+              //             height: 5,
+              //           )
+            ],
+          );
+        },
+      ),
     );
   }
 }
