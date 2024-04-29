@@ -17,9 +17,7 @@ class _NoNetworkWidgetState extends State<NoNetworkWidget> {
     _networkChange = NetworkChangeManager();
     fetchFirstResult();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      _networkChange.handlerNetworkChange((result) {
-        _updateView(result);
-      });
+      _networkChange.handlerNetworkChange(_updateView);
     });
   }
 
@@ -41,7 +39,7 @@ class _NoNetworkWidgetState extends State<NoNetworkWidget> {
       firstChild: SizedBox(
         height: 40,
         child: Text(
-          "İnternet Yok !",
+          'İnternet Yok !',
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: Colors.white,
               ),

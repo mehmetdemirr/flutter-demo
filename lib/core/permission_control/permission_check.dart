@@ -8,13 +8,13 @@ abstract class IPermissionCheck {
 class PermissionCheck extends IPermissionCheck {
   @override
   Future<bool> camera() async {
-    var status = await Permission.camera.status;
+    final status = await Permission.camera.status;
     return status.isGranted;
   }
 
   @override
   Future<bool> gallery() async {
-    var status = await Permission.photos.status;
+    final status = await Permission.photos.status;
     return status.isGranted;
   }
 }

@@ -6,7 +6,7 @@ class ThemeNotifier with ChangeNotifier {
   ThemeNotifier(this._themeData);
   ThemeData _themeData;
 
-  bool getTheme() => _themeData == darkTheme ? true : false;
+  bool getTheme() => _themeData == darkTheme;
 
   Future<void> setTheme(ThemeData themeData) async {
     _themeData = themeData;

@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:demo/product/get_image_screen/view/get_image_screen.dart';
 import 'package:demo/product/home_screen/home_screen.dart';
 import 'package:demo/product/network_work_screen/view/post_screen.dart';
 import 'package:demo/product/setting_screen/setting_screen.dart';
-
-import 'package:demo/product/get_image_screen/view/get_image_screen.dart';
 
 part 'app_router.gr.dart';
 

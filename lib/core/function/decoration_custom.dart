@@ -2,7 +2,10 @@ import 'package:demo/core/utilty/border_radius_items.dart';
 import 'package:flutter/material.dart';
 
 InputDecoration customInputDecoration(
-    String hintText, String labelText, BuildContext context) {
+  String hintText,
+  String labelText,
+  BuildContext context,
+) {
   return InputDecoration(
     hintText: hintText,
     hintStyle: Theme.of(context).textTheme.bodyMedium,

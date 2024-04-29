@@ -18,8 +18,7 @@ class NetworkChangeManager extends INetworkManager {
   }
   @override
   Future<NetworkResult> checkNetworkFirstTime() async {
-    final ConnectivityResult connectivityResult =
-        await (_connectivity.checkConnectivity());
+    final connectivityResult = await _connectivity.checkConnectivity();
     return NetworkResult.checkConnectivityResult(connectivityResult);
   }
 

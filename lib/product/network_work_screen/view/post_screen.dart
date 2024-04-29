@@ -29,7 +29,7 @@ class _PostScreenState extends State<PostScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Post Screen"),
+        title: const Text('Post Screen'),
       ),
       body: context.watch<PostViewModel>().isLoading
           ? const Column(
@@ -48,7 +48,7 @@ class _PostScreenState extends State<PostScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: Text("null geldi "),
+                child: Text('null geldi '),
               ),
             ],
           )
@@ -63,18 +63,18 @@ class _PostScreenState extends State<PostScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("id :${liste[index].id}"),
+                        Text('id :${liste[index].id}'),
                         Padding(
                           padding: PaddingItem.topSmall.str(),
-                          child: Text("başlık :\n${liste[index].title}"),
+                          child: Text('başlık :\n${liste[index].title}'),
                         ),
                         Padding(
                           padding: PaddingItem.topSmall.str(),
-                          child: Text("içerik\n${liste[index].body}"),
+                          child: Text('içerik\n${liste[index].body}'),
                         ),
                         Padding(
                           padding: PaddingItem.topSmall.str(),
-                          child: Text("User id :${liste[index].userId}"),
+                          child: Text('User id :${liste[index].userId}'),
                         ),
                       ],
                     ),
