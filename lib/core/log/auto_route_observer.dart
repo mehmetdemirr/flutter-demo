@@ -24,6 +24,7 @@ class MyObserver extends AutoRouterObserver {
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    Log.navigate('Poped route: ${route.data?.name}}, path: ${route.data?.path}');
+    Log.navigate(
+        'Poped route: ${route.data?.name}}, path: ${route.data?.path}');
   }
 }

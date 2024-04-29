@@ -15,7 +15,8 @@ mixin CustomUrlLauncher {
       url,
       mode: LaunchMode.inAppWebView,
       webViewConfiguration: const WebViewConfiguration(
-          headers: <String, String>{'my_header_key': 'my_header_value'}),
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      ),
     )) {
       throw Exception('Could not launch $url');
     }
@@ -42,7 +43,7 @@ mixin CustomUrlLauncher {
   }
 
   static Future<void> launchUniversalLinkIos(Uri url) async {
-    final bool nativeAppLaunchSucceeded = await launchUrl(
+    final nativeAppLaunchSucceeded = await launchUrl(
       url,
       mode: LaunchMode.externalNonBrowserApplication,
     );
@@ -55,7 +56,7 @@ mixin CustomUrlLauncher {
   }
 
   static Future<void> makePhoneCall(String phoneNumber) async {
-    final Uri launchUri = Uri(
+    final launchUri = Uri(
       scheme: 'tel',
       path: phoneNumber,
     );
@@ -64,14 +65,16 @@ mixin CustomUrlLauncher {
 
   static String? encodeQueryParameters(Map<String, String> params) {
     return params.entries
-        .map((MapEntry<String, String> e) =>
-            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .map(
+          (MapEntry<String, String> e) =>
+              '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}',
+        )
         .join('&');
   }
 
   static void composeMail() {
 // #docregion encode-query-parameters
-    final Uri emailLaunchUri = Uri(
+    final emailLaunchUri = Uri(
       scheme: 'mailto',
       path: 'smith@example.com',
       query: encodeQueryParameters(<String, String>{
@@ -85,7 +88,7 @@ mixin CustomUrlLauncher {
 
   static void composeSms() {
 // #docregion sms
-    final Uri smsLaunchUri = Uri(
+    final smsLaunchUri = Uri(
       scheme: 'sms',
       path: '0118 999 881 999 119 7253',
       queryParameters: <String, String>{

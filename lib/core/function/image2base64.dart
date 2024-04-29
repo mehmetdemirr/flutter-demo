@@ -9,11 +9,11 @@ Future<String?> convertXFileToBase64(XFile? file) async {
       // XFile null ise, null döndür
       return null;
     }
-    List<int> bytes = await file.readAsBytes();
-    String base64Image = base64Encode(bytes);
+    final List<int> bytes = await file.readAsBytes();
+    final base64Image = base64Encode(bytes);
     return base64Image;
   } catch (e) {
-    printf("hata imaage2base64 : $e");
+    printf('hata imaage2base64 : $e');
   }
   return null;
 }

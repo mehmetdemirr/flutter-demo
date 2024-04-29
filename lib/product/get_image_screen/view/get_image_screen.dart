@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:auto_route/annotations.dart';
 import 'package:demo/core/function/print_function.dart';
@@ -18,48 +19,50 @@ class _GetImageScreenState extends State<GetImageScreen>
     with WidgetsBindingObserver, LifeCycleUse {
   @override
   void onResume() {
-    printf("geri geldi");
+    printf('geri geldi');
   }
 
   XFile? _image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Picker Image")),
+      appBar: AppBar(title: const Text('Picker Image')),
       body: SingleChildScrollView(
         child: Column(
           children: [
             //galeriden fotoğraf seç
             ElevatedButton.icon(
               onPressed: () async {
-                final XFile? image = await PickManager().fetchImageGallery();
+                final image = await PickManager().fetchImageGallery();
                 setState(() {
                   _image = image;
                 });
               },
               icon: const Icon(Icons.library_add),
-              label: const Text("galeriden fotoğraf seç"),
+              label: const Text('galeriden fotoğraf seç'),
             ),
             // kamerdan fotoğraf çek
             ElevatedButton.icon(
               onPressed: () async {
-                final XFile? image = await PickManager().fetchImageCamera();
+                final image = await PickManager().fetchImageCamera();
                 setState(() {
                   _image = image;
                 });
               },
               icon: const Icon(Icons.camera_alt_outlined),
-              label: const Text("Fotoğraf çek"),
+              label: const Text('Fotoğraf çek'),
             ),
             //Birinci fotoğraf yazdırma yolu
-            _image != null
-                ? SizedBox(
-                    height: 200,
-                    width: 200,
-                    child: Image.file(
-                      File(_image!.path),
-                    ))
-                : const SizedBox(),
+            if (_image != null)
+              SizedBox(
+                height: 200,
+                width: 200,
+                child: Image.file(
+                  File(_image!.path),
+                ),
+              )
+            else
+              const SizedBox(),
             //ikinci fotoğraf yazdırma yolu
             FutureBuilder(
               future: _image?.readAsBytes(),
@@ -68,7 +71,7 @@ class _GetImageScreenState extends State<GetImageScreen>
                   return SizedBox(
                     height: 200,
                     width: 200,
-                    child: Image.memory(snapshot.data),
+                    child: Image.memory(snapshot.data as Uint8List),
                   );
                 }
                 return const SizedBox();

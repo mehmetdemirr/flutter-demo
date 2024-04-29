@@ -20,11 +20,12 @@ class PostService extends IPostService {
     dio.interceptors.add(PrettyDioLogger());
     final result = await dio.get(ApiItem.posts.str());
     if (result.statusCode == HttpStatus.ok) {
-      var jsonBody = result.data;
+      final jsonBody = result.data;
       if (jsonBody is List) {
-        List<PostModel>? list =
-            jsonBody.map((json) => PostModel.fromJson(json)).toList();
-        printf("${list.length} veri geldi");
+        final list = jsonBody
+            .map((json) => PostModel.fromJson(json as Map<String, dynamic>))
+            .toList();
+        printf('${list.length} veri geldi');
         return list;
       }
     }

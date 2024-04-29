@@ -7,13 +7,15 @@ mixin LifeCycleUse<T extends StatefulWidget>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(LifeCyleEventHandler(
-      //Burayı doldurmadım
-      resumeCallBack: () async {
-        onResume();
-      },
-      suspendingCallBack: () async {},
-    ));
+    WidgetsBinding.instance.addObserver(
+      LifeCyleEventHandler(
+        //Burayı doldurmadım
+        resumeCallBack: () async {
+          onResume();
+        },
+        suspendingCallBack: () async {},
+      ),
+    );
   }
 
   @override
@@ -24,25 +26,22 @@ mixin LifeCycleUse<T extends StatefulWidget>
 }
 
 class LifeCyleEventHandler extends WidgetsBindingObserver {
-  final AsyncCallback resumeCallBack;
-  final AsyncCallback suspendingCallBack;
-
   LifeCyleEventHandler({
     required this.resumeCallBack,
     required this.suspendingCallBack,
   });
+  final AsyncCallback resumeCallBack;
+  final AsyncCallback suspendingCallBack;
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) async {
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     super.didChangeAppLifecycleState(state);
     switch (state) {
       case AppLifecycleState.resumed:
         await resumeCallBack();
-        break;
       case AppLifecycleState.inactive:
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
         await suspendingCallBack();
-        break;
       default:
         break;
     }

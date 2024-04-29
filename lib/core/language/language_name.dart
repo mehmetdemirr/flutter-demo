@@ -1,4 +1,4 @@
-String languageName = """
+String languageName = '''
 [
   {
     "code": "ab",
@@ -737,4 +737,4 @@ String languageName = """
     "name": "Zulu"
   }
 ]
-""";
+''';

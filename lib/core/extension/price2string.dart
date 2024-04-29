@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 
 extension DoubleExtension on double? {
@@ -7,7 +6,7 @@ extension DoubleExtension on double? {
       return '-';
     }
 
-    var formatlayici = NumberFormat.currency(locale: locale, symbol: '₺');
+    final formatlayici = NumberFormat.currency(locale: locale, symbol: '₺');
     return formatlayici.format(this);
   }
 }

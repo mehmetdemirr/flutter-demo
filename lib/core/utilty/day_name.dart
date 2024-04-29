@@ -18,6 +18,6 @@ extension DayName on int {
       case 7:
         return LocaleKeys.pazar;
     }
-    return "";
+    return '';
   }
 }

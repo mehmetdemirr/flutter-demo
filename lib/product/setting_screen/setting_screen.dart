@@ -18,7 +18,7 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Setting Screen")),
+      appBar: AppBar(title: const Text('Setting Screen')),
       body: Column(
         children: [
           Text(
@@ -35,7 +35,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 lastDate: DateTime.now().add(const Duration(days: 100)),
               );
             },
-            child: const Text("takvim"),
+            child: const Text('takvim'),
           ),
         ],
       ),

@@ -1,16 +1,17 @@
+// ignore: public_member_api_docs
 class LanguageName {
-  String? code;
-  String? name;
-
+  // ignore: public_member_api_docs
   LanguageName({this.code, this.name});
 
   LanguageName.fromJson(Map<String, dynamic> json) {
-    code = json['code'];
-    name = json['name'];
+    code = json['code'] as String?;
+    name = json['name'] as String?;
   }
+  String? code;
+  String? name;
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
+    final data = <String, dynamic>{};
     data['code'] = code;
     data['name'] = name;
     return data;

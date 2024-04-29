@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  var darkModeOn = await SharedPref().getTheme();
+  final darkModeOn = await SharedPref().getTheme();
   runApp(
     MultiProvider(
       providers: [
@@ -36,7 +36,6 @@ void main() async {
         path:
             'assets/translations', // <-- change the path of the translation files
         fallbackLocale: const Locale('tr', 'TR'),
-        saveLocale: true,
         child: MyApp(),
       ),
     ),

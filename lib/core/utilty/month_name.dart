@@ -28,6 +28,6 @@ extension MonthName on int {
       case 12:
         return LocaleKeys.aralik;
     }
-    return "";
+    return '';
   }
 }

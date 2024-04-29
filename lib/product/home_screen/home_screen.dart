@@ -20,14 +20,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home Screen"),
+        title: const Text('Home Screen'),
         actions: [
           IconButton(
             onPressed: () {
               context.router.pushNamed(RouterItem.setting.str());
             },
             icon: IconItem.setting.str(),
-          )
+          ),
         ],
       ),
       body: Column(
@@ -35,19 +35,18 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Center(
             child: Text(
-              "${context.watch<HomeViewModel>().sayi}",
+              '${context.watch<HomeViewModel>().sayi}',
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
           Text(
-            "Deneme",
+            'Deneme',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           IgnorePointer(
-            ignoring: true,
             child: InkWell(
               onTap: () {
-                printf("mehmet basıldııı");
+                printf('mehmet basıldııı');
               },
               child: Icon(context.height > 20 ? Icons.abc : Icons.add),
             ),
@@ -61,27 +60,28 @@ class _HomeScreenState extends State<HomeScreen> {
           ElevatedButton(
             onPressed: () async {
               await CustomUrlLauncher.launchInBrowser(
-                  Uri.parse("https://pub.dev/packages/url_launcher"));
+                Uri.parse('https://pub.dev/packages/url_launcher'),
+              );
             },
-            child: const Text("web site "),
+            child: const Text('web site '),
           ),
           ElevatedButton(
             onPressed: () async {
-              await CustomUrlLauncher.makePhoneCall("+905050435046");
+              await CustomUrlLauncher.makePhoneCall('+905050435046');
             },
-            child: const Text("telefon"),
+            child: const Text('telefon'),
           ),
           ElevatedButton(
             onPressed: () async {
               CustomUrlLauncher.composeMail();
             },
-            child: const Text("mail"),
+            child: const Text('mail'),
           ),
           ElevatedButton(
             onPressed: () async {
               CustomUrlLauncher.composeSms();
             },
-            child: const Text("sms"),
+            child: const Text('sms'),
           ),
         ],
       ),
